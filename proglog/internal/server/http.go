@@ -1,4 +1,3 @@
-// START: newhttpserver
 package server
 
 import (
@@ -9,10 +8,10 @@ import (
 )
 
 func NewHTTPServer(addr string) *http.Server {
-	httpsrv := newHTTPServer()
+	httpServer := newHTTPServer()
 	r := mux.NewRouter()
-	r.HandleFunc("/", httpsrv.handleProduce).Methods("POST")
-	r.HandleFunc("/", httpsrv.handleConsume).Methods("GET")
+	r.HandleFunc("/", httpServer.handleProduce).Methods("POST")
+	r.HandleFunc("/", httpServer.handleConsume).Methods("GET")
 	return &http.Server{
 		Addr:    addr,
 		Handler: r,
