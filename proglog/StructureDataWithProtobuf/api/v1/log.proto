@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package log.v1;
+
+option go_package = "github.com/rickeygalloway/api/log_v1";
+
+message Record{
+  bytes value=1;
+  uint64 offset=2;
+}
+
+
+//COMMAND
+// protoc api/v1/*.proto --go_out=. --go_opt=paths=source_relative --proto_path=.
+
+//Also made a MakeFile in root
